@@ -1,0 +1,11 @@
+export const GET_All_DOGS = "GET_All_DOGS";
+export const CLEAR_ALL_DOGS = "CLEAR_ALL_DOGS";
+export const GET_All_TEMPERAMENTS = "GET_All_TEMPERAMENTS";
+export const GET_BY_NAME = "GET_BY_NAME";
+export const GET_BY_DETAIL = "GET_BY_DETAIL";
+export const CLEAR_DOG_DETAIL = "CLEAR_DOG_DETAIL";
+export const SET_CURRENT_PAGE = "SET_CURRENT_PAGE";
+export const DELETE_DOG = "DELETE_DOG";
+export const PUT_DOG = "PUT_DOG";
+export const FILTER = "FILTER";
+export const ORDER = "ORDER";
