@@ -5,7 +5,7 @@ const { Op } = require("sequelize");
 const axios = require("axios");
 
 const getFindAllDogsNameController = async (name) => {
-  //Se trae todo las coincidencias de la db
+  //It brings all the matches from the db
   const dbResults = await Dog.findAll({
     where: {
       name: {
@@ -14,9 +14,9 @@ const getFindAllDogsNameController = async (name) => {
     },
   });
 
-  //Se busca la coincidencia en la api
+  //Looking for a match in the api
   const { data } = await axios(`${END_POINT_URL}/search?q=${name}`);
-  //Se guarda solo la informacion necesaria para el resultado
+  //Only the information necessary for the result is saved
   const dogsNameApi = data.map((dog) => {
     return {
       id: dog.id,
@@ -31,7 +31,7 @@ const getFindAllDogsNameController = async (name) => {
       temperament: dog.temperament
     };
   });
-  //Si hay resultados en ambas busquedas, se retorna lo encontrado en ambas
+  //If there are results in both searches, the results found in both are returned.
   const resultTotal = [...dbResults, ...dogsNameApi];
   if (resultTotal.length === 0) {
     throw new Error(`No existen Perros con ese nombre`);

@@ -5,34 +5,34 @@ const { getAllTemperamentsDBController } = require("./getAllTemperamentsDBContro
 
 const getAllTemperamentsController = async () => {
 
-  //Obtenemos los temperaments de la api y se guardan en la db
+  // We get the temperaments from the api and they are saved in the db
   const { data } = await axios(`${END_POINT_URL}?api_key=${API_KEY}`);
   const allTemperamentsAPI = data.map((dog) => {
     return dog.temperament;
   });
-  // Se crea un Set para almacenar los temperamentos únicos
+  // A Set is created to store the unique temperaments
   const resultFinal = new Set();
-  // Se recorre el arreglo de temperamentos obtenido de la API
+  //The array of temperaments obtained from the api is traversed
   allTemperamentsAPI.forEach((temperamentString) => {
-    // Para evitar los null, se aplica el condicional
+    // To avoid nulls, the conditional is applied
     if (temperamentString) {
-      // Se divide el string de temperamentos por comas y se mapea para obtener los temperamentos individuales en un arreglo
+      // Split the string of temperaments by commas and map to get the individual temperaments in an arrangement
       const temperaments = temperamentString
         .split(", ")
         .map((string) => string);
-      // Recorrer el arreglo de temperamentos individuales para eliminar duplicados
+      // Step through the arrangement of individual temperaments to remove duplicates
       return temperaments.forEach((temperament) => {
         return resultFinal.add(temperament);
       });
     }
   });
-  //Se trae todos los resultados existentes en la db y se envian al resultado final sin repetidos
+  //All existing results in the db are brought and sent to the final result without repetition
   const resultDB = await getAllTemperamentsDBController();
   resultDB.forEach((temperament) => {
     return resultFinal.add(temperament);
   });
 
-  // Convertir el conjunto en un arreglo y devolverlo como resultado final
+  // Everything in the set is fetched and returned as an array for the final result
   return [...resultFinal];
 };
 

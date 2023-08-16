@@ -1,3 +1,4 @@
+// Information of the api to test the routes of the server
 [
   {
     weight: {

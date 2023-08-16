@@ -1,8 +1,8 @@
 const { getAllDogsController } = require("../controllers/getAllDogsController");
-const { Dog } = require("../db");
 
 const getAllDogsHandler = async (req, res) => {
   try {
+    // The controller is requested to bring all the dogs
     const allDogsResult = await getAllDogsController();
     return res.status(200).json(allDogsResult);
   } catch (error) {

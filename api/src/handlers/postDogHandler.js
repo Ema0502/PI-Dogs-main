@@ -2,7 +2,7 @@ const { postDogController } = require("../controllers/postDogController");
 
 const postDogHandler = async (req, res) => {
   try {
-    //Para crear el nuevo perro, sacamos del body la informacion para el controller
+    // To create the new dog, we take the information from the body and send it to the controller
     const dogDataBody = req.body;
     const result = await postDogController(dogDataBody);
     return res.status(201).json({ message: "Dog successfully created", data: result });

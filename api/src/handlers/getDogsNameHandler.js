@@ -3,7 +3,7 @@ const { getFindAllDogsNameController } = require("../controllers/getFindAllDogsN
 const getDogsNameHandler = async (req, res) => {
   try {
     const { name } = req.query;
-    //Convierte el nombre a minusculas para evitar errores con la db o api
+    // Convert the name to lowercase to avoid errors with the db or api, they are sent to the controller for a match search
     const allFindResults = await getFindAllDogsNameController(name.toLowerCase());
     return res.status(200).json(allFindResults);
   } catch (error) {

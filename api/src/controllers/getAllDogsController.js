@@ -4,9 +4,9 @@ const axios = require("axios");
 const { Dog } = require("../db");
 
 const getAllDogsController = async () => {
-  //Se consulta si hay registros en la base de datos, si los hay, se los prepara para el return
+  // Query if there are records in the database, if there are, prepare them for return
   const allDogsDB = await Dog.findAll();
-  //Si no hay registros en la base de datos, obtenemos los perros de la api y se guardan en la db
+  // If there are no records in the database, we get the dogs from the api and save them to the db
   const { data } = await axios(`${END_POINT_URL}?api_key=${API_KEY}`);
   const allResultApi = data.map((dog) => {
     return {

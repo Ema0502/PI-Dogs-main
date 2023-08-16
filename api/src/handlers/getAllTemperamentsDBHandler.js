@@ -2,6 +2,7 @@ const { getAllTemperamentsDBController } = require("../controllers/getAllTempera
 
 const getAllTemperamentsDBHandler = async (req, res) => {
   try {
+    // The controller is asked for all the temperaments of the dogs
     const allTemperamentsDB = await getAllTemperamentsDBController();
     return res.status(200).json(allTemperamentsDB);
   } catch (error) {

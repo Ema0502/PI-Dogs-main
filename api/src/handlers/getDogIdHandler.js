@@ -2,7 +2,7 @@ const { getDogIdController } = require("../controllers/getDogIdController");
 
 const getDogIdHandler = async (req, res) => {
   try {
-    //se trae el ID y se envia al controller
+    // The id is fetched and sent to the controller to fetch a specific dog
     const { id } = req.params;
     const dog = await getDogIdController(id);
     return res.status(200).json(dog);

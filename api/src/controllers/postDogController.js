@@ -1,7 +1,7 @@
 const { Dog } = require("../db");
 
 const postDogController = async (dogDataBody) => {
-  //Se hace un destructuring para mayor facilidad al leer el codigo
+  //A destructuring is done to make it easier to read the code
   const { image, name, height, weight, life_span, temperament } = dogDataBody;
   const newDog = {
     image,
@@ -11,7 +11,7 @@ const postDogController = async (dogDataBody) => {
     life_span,
     temperament
   };
-  //Se crea el nuevo perro en la db
+  //The new dog is created in the db
   const dogCreate = await Dog.create(newDog);
   return dogCreate;
 }

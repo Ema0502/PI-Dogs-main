@@ -2,7 +2,7 @@ const { deleteDogByNameController } = require("../controllers/deleteDogByNameCon
 
 const deleteDogByNameHandler = async (req, res) => {
   try {
-    //Se trae el name y se envia al controller para eliminar el perro de la db
+    //The name is fetched and sent to the controller to remove the dog from the db
     const { name } = req.query;
     const deleteResponse = await deleteDogByNameController(name);
     res.status(200).json(deleteResponse);

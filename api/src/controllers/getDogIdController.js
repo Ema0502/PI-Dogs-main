@@ -4,15 +4,15 @@ const axios = require("axios");
 const { Dog } = require("../db");
 
 const getDogIdController = async (id) => {
-  //Se hace una busqueda en la db si el id tiene una longitud grande ( por el UUID de la db)
+  // A search is made in the db, if the id has a long length (by the UUID of the db)
   if (id.length > 3) {
     const dbResult = await Dog.findByPk(id);
     return dbResult;
   }
 
-  //Si hay un perro con es id recibido, lo retornamos
+  //If there is a dog with the received id, we return it
   const { data } = await axios(`${END_POINT_URL}/${id}?api_key=${API_KEY}`);
-  //Se extraen solamente los datos solicitados de la api para retornarlos
+  //Only the requested data is extracted from the api to return them
   const dogById = {
     id,
     name: data.name,
