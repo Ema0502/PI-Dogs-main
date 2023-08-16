@@ -1,4 +1,4 @@
-import { GET_All_DOGS, CLEAR_ALL_DOGS, GET_All_TEMPERAMENTS, GET_BY_NAME, GET_BY_DETAIL, CLEAR_DOG_DETAIL, DELETE_DOG, PUT_DOG, FILTER, ORDER } from "./action-types";
+import { GET_All_DOGS, CLEAR_ALL_DOGS, GET_All_TEMPERAMENTS, GET_BY_NAME, GET_BY_DETAIL, CLEAR_DOG_DETAIL, DELETE_DOG, PUT_DOG, FILTER, ORDER, RESPONSE_API_DB } from "./action-types";
 import axios from "axios";
 
 // Accion asincronica para obtener todos los perros
@@ -126,6 +126,17 @@ export const orderCards = (order) => {
     return {
       type: ORDER,
       payload: order
+    };
+  } catch (error) {
+    alert(`ha ocurrido el siguiente error: ${error.message}`);
+  }
+};
+
+export const filterResponse = (value) => {
+  try {
+    return {
+      type: RESPONSE_API_DB,
+      payload: value
     };
   } catch (error) {
     alert(`ha ocurrido el siguiente error: ${error.message}`);

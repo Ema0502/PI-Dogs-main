@@ -1,7 +1,7 @@
 import style from "./Home.module.css";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getAllDogs, clearAllDogs, filterCards, orderCards } from "../../redux/actions";
+import { getAllDogs, clearAllDogs, filterCards, orderCards, filterResponse } from "../../redux/actions";
 import NavBar from "../../components/NavBar/NavBar";
 import Cards from "../../components/Cards/Cards";
 
@@ -22,6 +22,10 @@ const Home = () => {
   const handleFilter = (event) => {
     dispatch(filterCards(event.target.value));
   };
+
+  const handleFilterApiDb = (event) => {
+    dispatch(filterResponse(event.target.value))
+  }
 
   useEffect(() => {
     dispatch(getAllDogs());
@@ -46,7 +50,7 @@ const Home = () => {
           <option value="name">Alfabetico</option>
           <option value="weight">Peso</option>
         </select>
-        <select name="filter2" id="filter2" className={style.selectButton}>
+        <select name="filter2" id="filter2" onChange={handleFilterApiDb} className={style.selectButton}>
           <option value="api">API</option>
           <option value="db">DB</option>
         </select>

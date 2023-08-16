@@ -1,13 +1,11 @@
 require("dotenv").config();
 const { API_KEY, END_POINT_URL } = process.env;
 const axios = require("axios");
-const { Temperament } = require("../db");
+const { getAllTemperamentsDBController } = require("./getAllTemperamentsDBController");
 
 const getAllTemperamentsController = async () => {
-  //Se consulta si hay registros en la base de datos
-  const allTemperamentsDB = await Temperament.findAll();
-  console.log(allTemperamentsDB)
-  //Si no hay registros en la base de datos, obtenemos los temperaments de la api y se guardan en la db
+
+  //Obtenemos los temperaments de la api y se guardan en la db
   const { data } = await axios(`${END_POINT_URL}?api_key=${API_KEY}`);
   const allTemperamentsAPI = data.map((dog) => {
     return dog.temperament;
@@ -22,13 +20,18 @@ const getAllTemperamentsController = async () => {
       const temperaments = temperamentString
         .split(", ")
         .map((string) => string);
-
       // Recorrer el arreglo de temperamentos individuales para eliminar duplicados
       return temperaments.forEach((temperament) => {
         return resultFinal.add(temperament);
       });
     }
   });
+  //Se trae todos los resultados existentes en la db y se envian al resultado final sin repetidos
+  const resultDB = await getAllTemperamentsDBController();
+  resultDB.forEach((temperament) => {
+    return resultFinal.add(temperament);
+  });
+
   // Convertir el conjunto en un arreglo y devolverlo como resultado final
   return [...resultFinal];
 };

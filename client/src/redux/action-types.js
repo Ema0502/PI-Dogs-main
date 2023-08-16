@@ -9,3 +9,4 @@ export const DELETE_DOG = "DELETE_DOG";
 export const PUT_DOG = "PUT_DOG";
 export const FILTER = "FILTER";
 export const ORDER = "ORDER";
+export const RESPONSE_API_DB = "RESPONSE_API_DB";

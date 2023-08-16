@@ -19,7 +19,8 @@ const getAllDogsController = async () => {
       height: dog.height?.metric,
       weight: dog.height?.metric,
       life_span: dog.life_span,
-      temperament: dog.temperament
+      temperament: dog.temperament,
+      idApi: dog.id
     };
   });
   if (allDogsDB) return [...allDogsDB, ...allResultApi]

@@ -6,8 +6,10 @@ import {
   GET_BY_DETAIL,
   CLEAR_DOG_DETAIL,
   DELETE_DOG,
+  PUT_DOG,
   FILTER,
   ORDER,
+  RESPONSE_API_DB,
 } from "./action-types";
 
 const initialState = {
@@ -55,6 +57,10 @@ const reducer = (state = initialState, { type, payload }) => {
         ...state,
         dogDetail: [],
       };
+    case PUT_DOG:
+      return {
+        ...state
+      }
     case DELETE_DOG:
       // Filtra los perros para excluir el perro eliminado por su ID
       const updatedAllDogs = state.allDogs.filter((dog) => dog.id !== payload);
@@ -63,25 +69,21 @@ const reducer = (state = initialState, { type, payload }) => {
         allDogs: updatedAllDogs,
         dogDetail: payload,
       };
-      case FILTER:
-        let allDogsFiltered = [...state.allDogs]; // Crear una copia del array original
+    case FILTER:
+      let allDogsFiltered = [...state.allDogs]; // Se crea una copia del array original
       
-        if (payload === "temperament") {
-          // Filtro por temperamento
-          allDogsFiltered = allDogsFiltered.filter((dog) => dog.temperament !== null);
-        } else if (payload === "name") {
-          // Ordenar por nombre en orden alfabético ascendente
-          allDogsFiltered.sort();
-        } else if (payload === "weight") {
-          // Ordenar por peso en orden ascendente
-          allDogsFiltered.sort((a, b) => a.weight.split(" - ")[0] - b.weight.split(" - ")[0]);
-        }
-        // Puedes agregar más condiciones para otros filtros aquí...
-      
-        return {
-          ...state,
-          allDogs: allDogsFiltered,
-        };
+      if (payload === "temperament") {
+        allDogsFiltered = allDogsFiltered.filter((dog) => dog.temperament);
+        allDogsFiltered.sort((a, b) => a.temperament[0] > b.temperament[0] ? 1 : -1);
+      } else if (payload === "name") {
+        allDogsFiltered.sort((a, b) => a.id - b.id);
+      } else if (payload === "weight") {
+        allDogsFiltered.sort((a, b) => a.weight.split(" - ")[0] - b.weight.split(" - ")[0]);
+      }
+      return {
+        ...state,
+        allDogs: allDogsFiltered,
+      };
     case ORDER:
       const allDogsCopy = [...state.allDogs];
       return {
@@ -90,6 +92,15 @@ const reducer = (state = initialState, { type, payload }) => {
           payload === "A"
             ? allDogsCopy.sort((a, b) => a.id - b.id)
             : allDogsCopy.sort((a, b) => b.id - a.id),
+      };
+    case RESPONSE_API_DB:
+      const copyAllDogs = [...state.allDogs];
+      return {
+        ...state,
+        allDogs:
+        payload === "db"
+        ? copyAllDogs.filter((dog) => dog.id.length > 3)
+        : copyAllDogs.sort((a, b) => a.idApi - b.idApi)
       };
     // Cuando no se reconoce el tipo de accion, se retorna el estado actual sin realizar cambios
     default:
