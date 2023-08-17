@@ -15,22 +15,32 @@ const validation = (input) => {
 
   if (!input.life_span) {
     errors.life_span = "Debe ingresar el tiempo de vida";
+  } else if (parseInt(input.life_span) > 35){
+    errors.height = "El tamaño debe ser menor a 35";
   }
 
   if (!input.height) {
     errors.height = "Debe ingresar el tamaño";
   } else if (!/^\d+$/.test(input.height)) {
     errors.height = "El tamaño solo puede contener números";
+  } else if (parseInt(input.height) > 90){
+    errors.height = "El tamaño debe ser menor a 90";
   }
 
   if (!input.weight) {
     errors.weight = "Debe ingresar el peso";
   } else if (!/^\d+$/.test(input.weight)) {
     errors.weight = "El peso solo puede contener números";
+  } else if (parseInt(input.weight) > 70) {
+    errors.weight = "El peso debe ser menor a 70";
   }
 
   if (!input.temperament || input.temperament.length === 0) {
     errors.temperament = "Debe ingresar al menos un Temperamento";
+  } else if (/\d/.test(input.temperament)) {
+    errors.temperament = "Solo puedes agregar caracteres";
+  } else if (!/^.{1,100}$/.test(input.temperament)) {
+    errors.name = "El nombre debe contener máximo 100 caracteres";
   }
 
   return errors;

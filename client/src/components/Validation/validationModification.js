@@ -11,6 +11,8 @@ const validation = (input) => {
 
   if (!input.life_span && input.life_span) {
     errors.life_span = "Debe ingresar el tiempo de vida";
+  } else if (parseInt(input.life_span) > 35){
+    errors.height = "El tamaño debe ser menor a 35";
   }
 
   if (!/^\d+$/.test(input.height) && input.height) {
@@ -27,6 +29,8 @@ const validation = (input) => {
 
   if (/\d/.test(input.temperament) && input.temperament) {
     errors.temperament = "Solo puedes agregar caracteres";
+  } else if (!/^.{1,100}$/.test(input.temperament)) {
+    errors.name = "El nombre debe contener máximo 100 caracteres";
   }
 
   return errors;
