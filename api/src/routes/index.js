@@ -22,7 +22,7 @@ router.get("/search", getDogsNameHandler);
 router.post("/dogs", postDogHandler);
 router.get("/temperaments", getAllTemperamentsHandler);
 router.get("/temperamentsDB", getAllTemperamentsDBHandler);
-router.put("/dogs", putDogHandler);
+router.put("/modifications", putDogHandler);
 router.delete("/delete", deleteDogByNameHandler);
 router.delete("/delete/:id", deleteDogByIdHandler);
 

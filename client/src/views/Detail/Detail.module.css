@@ -47,8 +47,10 @@
 }
 
 .buttonPut{
-  background-color: rgb(235, 96, 41);
+  background-color: rgb(230, 101, 50);
   color:#fff ;
+  border: 1px solid black;
+  border-radius: 10px;
 }
 .buttonDelete{
   background-color: rgb(206, 29, 29);

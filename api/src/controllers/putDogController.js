@@ -3,15 +3,13 @@ const { Dog } = require("../db");
 const putDogController = async (modifications) => {
   try {
     // Find the dog you want to modify by name
-    const dogToUpdate = await Dog.findOne({
-      where: { name: modifications.name },
-    });
+    const dogToUpdate = await Dog.findByPk(modifications.id);
     // If the dog does not exist, an error is thrown
     if (!dogToUpdate) throw new Error("Dog not found");
     // The dog is updated with the modifications provided
     const [updatedCount] = await Dog.update(modifications, {
-      where: { name: modifications.name },
-    });
+      where: { id: modifications.id },
+    });;
     // If there are modifications, it looks for the updated dog and returns it
     if (updatedCount) {
       const updatedDog = await Dog.findByPk(dogToUpdate.id);

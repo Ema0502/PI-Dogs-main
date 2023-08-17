@@ -1,13 +1,9 @@
-.body-form{
-  margin-top: 80px; /*Adjust the height of the NavBar*/
-  padding-bottom: 20px; /*adjust space down*/
-}
 
 .box-text {
   background-color: rgba(255, 255, 255, 0.7);
   border: 1px solid black;
   padding: 5px 50px 5px 50px;
-  width: 470px;
+  width: 450px;
   height: 60px;
   border-radius: .8em;
   display: flex; /*Set the box container as a flexbox*/
