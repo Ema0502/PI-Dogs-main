@@ -51,8 +51,9 @@ const Home = () => {
           <option value="weight">Peso</option>
         </select>
         <select name="filter2" id="filter2" onChange={handleFilterApiDb} className={style.selectButton}>
-          <option value="api">API</option>
+          <option value="todos">DB/API</option>
           <option value="db">DB</option>
+          <option value="api">API</option>
         </select>
       </div>
       {/* Relevant data is passed as props to the Cards and Paginated component*/}

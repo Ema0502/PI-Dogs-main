@@ -105,14 +105,13 @@ const reducer = (state = initialState, { type, payload }) => {
       };
     // Case to filter by api or db
     case RESPONSE_API_DB:
-      const copyAllDogs = [...state.allDogs];
+      let copyAllDogs = [...state.allDogs];
+      if (payload === "db") copyAllDogs = copyAllDogs.filter((dog) => dog.id.length > 3);
+      if (payload === "api") copyAllDogs = copyAllDogs.sort((a, b) => a.idApi - b.idApi);
+      if (payload === "todos") copyAllDogs = copyAllDogs.sort((a, b) => a.id - b.id);
       return {
         ...state,
-        // A ternary is used to evaluate one condition or another
-        allDogs:
-        payload === "db"
-        ? copyAllDogs.filter((dog) => dog.id.length > 3)
-        : copyAllDogs.sort((a, b) => a.idApi - b.idApi)
+        allDogs: copyAllDogs
       };
     // When the action type is not recognized, the current state is returned without making any changes.
     default:
