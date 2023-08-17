@@ -1,6 +1,6 @@
 .body-form{
-  margin-top: 80px; /* Ajusta la altura de la NavBar */
-  padding-bottom: 20px; /* Ajusta el espacio hacia abajo */
+  margin-top: 80px; /*Adjust the height of the NavBar*/
+  padding-bottom: 20px; /*adjust space down*/
 }
 
 .box-text {
@@ -10,10 +10,10 @@
   width: 450px;
   height: 60px;
   border-radius: .8em;
-  display: flex; /* Establece el contenedor del cuadro como un flexbox */
-  justify-content: center; /* Centra el contenido horizontalmente */
-  align-items: center; /* Centra el contenido verticalmente */
-  margin-top: 5px; /* Ajusta la altura de la NavBar */
+  display: flex; /*Set the box container as a flexbox*/
+  justify-content: center; /*Center content horizontally*/
+  align-items: center; /*Center content vertically*/
+  margin-top: 5px; /*Adjust the height of the NavBar*/
 }
 
 .button-submit {

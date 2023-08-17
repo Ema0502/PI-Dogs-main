@@ -2,28 +2,28 @@ import { useState } from "react";
 import style from "./Paginated.module.css";
 
 const Paginated = ({page, setPage, maximum}) => {
-  // Estado local para el valor del input de paginacion
-  // Se usa este estado para que se setee el estado solamente cuando se presione enter en el input 
+  // Local state for the value of the paging input
+  // This state is used so that the state is set only when enter is pressed on the input
   const [input, setInput] = useState(1);
 
-  // Función para ir a la pagina anterior
+  // Function to go to the previous page
   const previusPage = () => {
     setInput(parseInt(input) - 1);
     setPage(parseInt(page) - 1);
   }
 
-  // Función para ir a la pagina siguiente
+  // Function to go to the next page
   const nextPage = () => {
     setInput(parseInt(input) + 1);
     setPage(parseInt(page) + 1);
   }
 
-  // Manejar el evento keyDown del input de paginacion
+  // The keyDown event of the pagination input is handled
   const onKeyDown = (event) => {
-    // keyCode hace referencia a la tecla enter
+    // keyCode refers to the enter key
     if (event.keyCode === 13) {
       setPage(parseInt(event.target.value));
-      // Se valida que el valor ingresado sea valido, si es un string o boleano, o un numero menor o mayor a los limites, se setea a la pagina 1
+      // It is validated that the value entered is valid, if it is a string or boolean, or a number less than or greater than the limits, it is set to page 1
       if (
         parseInt(event.target.value < 1) ||
         parseInt(event.target.value) > Math.ceil(maximum) ||
@@ -37,20 +37,20 @@ const Paginated = ({page, setPage, maximum}) => {
     }
   };
 
-  // Manejar el evento onChange del input de paginación
+  // Handle the onChange event of the pagination input
   const onChange = event => {
     setInput(event.target.value);
   };
 
   return (
     <div className={style.container}>
-      {/* Botón para ir a la página anterior */}
+      {/* Button to go to the previous page*/}
       <button onClick={previusPage} className={style["button-navBar"]} disabled={page <= 1}>anterior</button>
-      {/* Input de paginación */}
+      {/* pagination input*/}
       <input className={style.SearchBar} name="page" value={input} onChange={(event) => onChange(event)} onKeyDown={(event) => onKeyDown(event)} />
-      {/* Texto que muestra la página actual y el máximo de páginas */}
+      {/* Text showing current page and maximum pages*/}
       <p className={style.textPagined}>de {Math.ceil(maximum)}</p>
-      {/* Botón para ir a la página siguiente */}
+      {/* Button to go to the next page*/}
       <button onClick={nextPage} className={style["button-navBar"]} disabled={page >= maximum}>siguiente</button>
     </div>
   )

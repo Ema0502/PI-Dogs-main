@@ -15,7 +15,6 @@ function App() {
         <Route path="/home/:id" element={<Detail />} />
         <Route path="/create" element={<Create />} />
         <Route path="/about" element={<About />} />
-        {/* usar /* en el path para mostrar algo siempre, por ejemplo la NavBar!! */}
       </Routes>
     </div>
   );

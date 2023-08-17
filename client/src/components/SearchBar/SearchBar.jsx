@@ -5,14 +5,14 @@ import { getByName } from "../../redux/actions";
 
 const SearchBar = () => {
   const dispatch = useDispatch();
-  const [name, setName] = useState(""); //este estado es para el input del searchBar
-
-  //se evita que se resetee la pagina y al estado local le pasamos lo que se escribe en el input
+  // This state is for the input of the searchBar
+  const [name, setName] = useState("");
+  // It prevents the page from being reset and we pass what is written in the input to the local state
   const handleChange = (event) => {
     event.preventDefault();
     setName(event.target.value);
   }
-  //se hace este handle para que al buscar en el input, se haga un filtrado por nombre
+  // This handle is made so that when searching in the input, a filter is done by name
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(getByName(name));

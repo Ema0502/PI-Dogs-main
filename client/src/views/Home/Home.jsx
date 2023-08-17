@@ -8,21 +8,21 @@ import Cards from "../../components/Cards/Cards";
 const Home = () => {
   const dispatch = useDispatch();
   const allDogs = useSelector((state) => state.allDogs);
-  // Estado local para el numero de página
+  // Local state for page number
   const [page, setPage] = useState(1);
-  // Estado local para la cantidad de cards por pagina
+  // Local state for the number of cards per page
   const [pageLength, setPageLength] = useState(8);
-  // Cálculo del maximo numero de paginas para el paginado
+  // Calculation of the maximum number of pages for pagination
   const maximum = allDogs.length / pageLength;
-  
+  // Function to sort the dogs
   const handleOrder = (event) => {
     dispatch(orderCards(event.target.value));
   }
-
+// Function to filter the dogs
   const handleFilter = (event) => {
     dispatch(filterCards(event.target.value));
   };
-
+// Function to filter by api or db
   const handleFilterApiDb = (event) => {
     dispatch(filterResponse(event.target.value))
   }
@@ -55,7 +55,7 @@ const Home = () => {
           <option value="db">DB</option>
         </select>
       </div>
-      {/* Se pasan los datos relevantes como props al componente Cards y Paginated */}
+      {/* Relevant data is passed as props to the Cards and Paginated component*/}
       <Cards page={page} setPage={setPage} maximum={maximum} pageLength={pageLength} />
     </div>
   );

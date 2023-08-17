@@ -9,7 +9,7 @@
   border-radius: 5px;
   padding: 25px;
   cursor: pointer;
-  /* animacion para un cambio gradual */  
+  /*animation for gradual change*/  
   -moz-osx-fontsmoothing: grayscale;
   backface-visibility: hidden;
   transform: translateZ(0);
@@ -21,9 +21,9 @@
 }
 
 .image-card{
-  width: 50%; /* Ajusta el ancho de la imagen al 100% del contenedor */
-  height: auto; /* Ajusta la altura de la imagen automáticamente */
-  object-fit: cover; /* Ajusta el tamaño de la imagen sin distorsión */
+  width: 50%; /*Set the width of the image to 100% of the container*/
+  height: auto; /*Adjust image height automatically*/
+  object-fit: cover; /*Adjust the size of the image without distortion*/
   border-radius: 10px;
 }
 

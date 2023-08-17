@@ -20,13 +20,13 @@ const Detail = () => {
   };
 
   useEffect(() => {
-    //Hace un dispatch para traer al perro por id
+    // Makes a dispatch to bring the dog by id
     dispatch(getByDetail(id));
-    // Al desmontar el componente, dispara la acción para limpiar el detalle
+    // When disassembling the component, fire the action to clean up the detail
     return () => dispatch(clearDogDetail());
   }, [dispatch, id]);
 
-  // Condición para mostrar el botón de eliminar
+  // Condition to display the delete button
   const dbDeleteButton = id.length > 3;
 
   return (

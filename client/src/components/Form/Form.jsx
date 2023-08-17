@@ -4,7 +4,7 @@ import validation from "../Validation/validation";
 import axios from "axios";
 
 const Form = () => {
-  //estado local para los los inputs
+  // Local state for the inputs
   const [input, setInput] = useState({
     name: "",
     image: "",
@@ -13,7 +13,7 @@ const Form = () => {
     weight: "",
     temperament: []
   });
-  //estado local para almacenar los errores y mostrar las validaciones
+  // Local state to store errors and display validations
   const [error, setError] = useState({
     name: "campo obligatorio",
     image: "campo obligatorio",
@@ -22,16 +22,16 @@ const Form = () => {
     weight: "campo obligatorio",
     temperament: "campo obligatorio",
   });
-  //estado local para la respuesta en caso de ser exitosa
+  // Local state for the response in case of success
   const [response, setResponse] = useState("");
   
   const handleChange = (event) => {
-    // Se actualiza el estado de los inputs con los valores actuales del formulario
+    // The status of the inputs is updated with the current values ​​of the form
     setInput({
       ...input,
       [event.target.name]: event.target.value
     })
-    // Se valida el formulario y se actualiza el estado local de errores con los mensajes de errores correspondientes de la validacion
+    // The form is validated and the local error status is updated with the corresponding validation error messages.
     setError(validation({ 
       ...input, 
       [event.target.name]: event.target.value 
@@ -39,22 +39,27 @@ const Form = () => {
   };
   
   const handleSubmit = async (event) => {
-    event.preventDefault(); // Evita el envío del formulario por defecto
+    // Prevent form submission by default
+    event.preventDefault();
     try {
       const { data } = await axios.post("http://localhost:3001/dogs", input);
-      setResponse(data); // Almacena la respuesta en el estado 'response'
+      // Stores the response in the 'response' state
+      setResponse(data); 
     } catch (error) {
-      alert(`No pudo completarse la solicitud por el siguiente error: ${error.message}`); // Manejo de errores en caso de que falle la solicitud
+      // Error handling in case the request fails
+      alert(`No pudo completarse la solicitud por el siguiente error: ${error.message}`); 
     }
   };
-  // Función para verificar si hay errores en el estado de errores
+  // Function to check for errors in the error state
   const hasErrors = () => {
     for (const key in error) {
       if (error[key] !== "") {
-        return true; // Hay un mensaje de error no vacío
+        // There is a non-empty error message
+        return true; 
       }
     }
-    return false; // No se encontraron mensajes de error no vacíos
+    // No non-empty error messages found
+    return false; 
   };
   
   return (
@@ -63,50 +68,50 @@ const Form = () => {
       <div className={style["box-text"]}>
         <label htmlFor="name">Nombre:</label>
         <input type="text" id="name" name="name" value={input.name} onChange={handleChange} />
-        {/* Muestra el mensaje de error si existe */}
+        {/* Show error message if exists*/}
         {error.name && <p style={{ color: "red" }}>{error.name}</p>}
       </div>
 
       <div className={style["box-text"]}>
         <label htmlFor="image">Imagen:</label>
         <input type="text" id="image" name="image" value={input.image} onChange={handleChange} />
-        {/* Muestra el mensaje de error si existe */}
+        {/* Show error message if exists*/}
         {error.image && <p style={{ color: "red" }}>{error.image}</p>}
       </div>
 
       <div className={style["box-text"]}>
         <label htmlFor="life_span">Tiempo de vida:</label>
         <input type="text" id="life_span" name="life_span" value={input.life_span} onChange={handleChange} />
-        {/* Muestra el mensaje de error existe */}
+        {/* Show error message if exists*/}
         {error.life_span && <p style={{ color: "red" }}>{error.life_span}</p>}
       </div>
 
       <div className={style["box-text"]}>
         <label htmlFor="height">Tamaño:</label>
         <input type="text" id="height" name="height" value={input.height} onChange={handleChange} />
-        {/* Muestra el mensaje de error si existe */}
+        {/* Show error message if exists*/}
         {error.height && <p style={{ color: "red" }}>{error.height}</p>}
       </div>
 
       <div className={style["box-text"]}>
         <label htmlFor="weight">Peso:</label>
         <input type="text" id="weight" name="weight" value={input.weight} onChange={handleChange} />
-        {/* Muestra el mensaje de error si existe */}
+        {/* Show error message if exists*/}
         {error.weight && <p style={{ color: "red" }}>{error.weight}</p>}
       </div>
 
       <div className={style["box-text"]}>
         <label htmlFor="temperament">Temperamentos:</label>
         <input type="text" id="temperament" name="temperament" value={input.temperament} onChange={handleChange} />
-        {/* Muestra el mensaje de error si existe */}
+        {/* Show error message if exists*/}
         {error.temperament && <p style={{ color: "red" }}>{error.temperament}</p>}
       </div>
-      {/* Botón de envío */}
+      {/* submit button*/}
       <button type="submit" className={style["button-submit"]} disabled={hasErrors()}>
         CREAR
       </button>
 
-      {/* Muestra la respuesta si existe */}
+      {/* Show the answer if it exists*/}
       {response && 
         <div className={style["box-text"]}>
           <p>Perro creado satisfactoriamente!</p>

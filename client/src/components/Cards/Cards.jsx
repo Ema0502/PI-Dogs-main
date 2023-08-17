@@ -4,12 +4,12 @@ import Paginated from "../Paginated/Paginated";
 import { useSelector } from "react-redux";
 
 const Cards = ({page, setPage, pageLength, maximum}) => {
-  const allDogs = useSelector((state) => state.allDogs) //Acceso al estado global
+  const allDogs = useSelector((state) => state.allDogs)
   return (
     <div>
       <div className={style["cards-list"]}> 
-      {/* Se itera sobre la lista de perros y creamos un componente Card para cada uno */}
-      {/* En el slice se usa una formula para marcar que cards se renderizan en el estado local page */}
+      {/* Iterate over the list of dogs and create a Card component for each one*/}
+      {/* In the slice, a formula is used to mark which cards are rendered in the local page state.*/}
       {
         allDogs
         .slice((page - 1) * pageLength, (page - 1) * pageLength + pageLength)
@@ -18,7 +18,7 @@ const Cards = ({page, setPage, pageLength, maximum}) => {
         })
       }
       </div>
-      {/* Se pasan las props necesarias a Paginated */}
+      {/* The necessary props are passed to Paginated*/}
       <Paginated page={page} setPage={setPage} maximum={maximum} />
     </div>
   );

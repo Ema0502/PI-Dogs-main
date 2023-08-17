@@ -1,7 +1,7 @@
 import { GET_All_DOGS, CLEAR_ALL_DOGS, GET_All_TEMPERAMENTS, GET_BY_NAME, GET_BY_DETAIL, CLEAR_DOG_DETAIL, DELETE_DOG, PUT_DOG, FILTER, ORDER, RESPONSE_API_DB } from "./action-types";
 import axios from "axios";
 
-// Accion asincronica para obtener todos los perros
+// Asynchronous action to get all dogs
 export const getAllDogs = () => {
   return async function (dispatch) {
     try {
@@ -15,7 +15,7 @@ export const getAllDogs = () => {
     }
   };
 };
-
+// Accion para limpiar el estado al cambiar de componente
 export const clearAllDogs = () => {
   try {
     return {
@@ -26,7 +26,7 @@ export const clearAllDogs = () => {
   }
 };
 
-// Accion asincronica para obtener todos los temperamentos de los perros
+// Asynchronous action to obtain all the temperaments of the dogs
 export const getAllTemperaments = () => {
   return async function (dispatch) {
     try {
@@ -40,7 +40,7 @@ export const getAllTemperaments = () => {
     }
   };
 };
-// Accion asincronica para obtener un perro por nombre
+// Asynchronous action to get a dog by name
 export const getByName = (name) => {
   return async function (dispatch) {
     try {
@@ -54,7 +54,7 @@ export const getByName = (name) => {
     }
   };
 };
-// Accion asincronica para obtener los detalles de un perro por id
+// Asynchronous action to get the details of a dog by id
 export const getByDetail = (id) => {
   return async function (dispatch) {
     try {
@@ -68,7 +68,7 @@ export const getByDetail = (id) => {
     }
   };
 };
-
+// Action to clear the state when changing components
 export const clearDogDetail = () => {
   try {
     return {
@@ -78,7 +78,7 @@ export const clearDogDetail = () => {
     alert(`ha ocurrido el siguiente error: ${error.message}`);
   }
 };
-
+// Asynchronous action to remove a dog by name
 export const deleteDog = (name) => {
   return async function (dispatch) {
     try {
@@ -94,7 +94,7 @@ export const deleteDog = (name) => {
     }
   };
 };
-
+// Asynchronous action to modify a db dog
 export const putDog = (modifications) => {
   return async function (dispatch) {
     try {
@@ -109,7 +109,7 @@ export const putDog = (modifications) => {
     }
   };
 };
-
+// Action to filter the dogs
 export const filterCards = (value) => {
   try {
     return {
@@ -120,7 +120,7 @@ export const filterCards = (value) => {
     alert(`ha ocurrido el siguiente error: ${error.message}`);
   }
 };
-
+// Action to order the cards ascending or descending
 export const orderCards = (order) => {
   try {
     return {
@@ -131,7 +131,7 @@ export const orderCards = (order) => {
     alert(`ha ocurrido el siguiente error: ${error.message}`);
   }
 };
-
+// Action to filter the dogs by api or db
 export const filterResponse = (value) => {
   try {
     return {

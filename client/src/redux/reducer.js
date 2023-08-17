@@ -19,90 +19,102 @@ const initialState = {
   dogName: [],
 };
 
-// Se define el reducer que actualiza el estado en función de las acciones
+// Define the reducer that updates the state based on the actions
 const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    // Caso para la accion de obtener todos los perros
+    // Case for the action of getting all the dogs
     case GET_All_DOGS:
       return {
         ...state,
         allDogs: payload,
       };
-
+    // Case for cleaning up the state of rendered dogs
     case CLEAR_ALL_DOGS:
       return {
         ...state,
         allDogs: [],
       };
-    // Caso para la accion de obtener todos los temperamentos de los perros
+    // Case for getting all the temperaments of dogs
     case GET_All_TEMPERAMENTS:
       return {
         ...state,
         allTemperaments: payload,
       };
-    // Caso para la accion de obtener un perro por nombre
+    // Case for the action of obtaining a dog by name
     case GET_BY_NAME:
       return {
         ...state,
         allDogs: payload,
       };
-    // Caso para la acción de obtener un perro por ID
+    // Case to get a dog by id
     case GET_BY_DETAIL:
       return {
         ...state,
         dogDetail: payload,
       };
+    // Case to clean the state of the detail
     case CLEAR_DOG_DETAIL:
       return {
         ...state,
         dogDetail: [],
       };
+    // Case to modify a dog from the db
     case PUT_DOG:
       return {
         ...state
       }
+    // Case to remove a dog
     case DELETE_DOG:
-      // Filtra los perros para excluir el perro eliminado por su ID
+      // Filter the dogs to exclude the dog removed by its id
       const updatedAllDogs = state.allDogs.filter((dog) => dog.id !== payload);
       return {
         ...state,
         allDogs: updatedAllDogs,
         dogDetail: payload,
       };
+    // Case to filter dogs
     case FILTER:
-      let allDogsFiltered = [...state.allDogs]; // Se crea una copia del array original
-      
+      // A copy of the original array is created
+      let allDogsFiltered = [...state.allDogs]; 
       if (payload === "temperament") {
+        // The temperaments are filtered, the first character of each one is evaluated, and a numerical value is assigned to them to order them with the sort method.
         allDogsFiltered = allDogsFiltered.filter((dog) => dog.temperament);
         allDogsFiltered.sort((a, b) => a.temperament[0] > b.temperament[0] ? 1 : -1);
       } else if (payload === "name") {
+        // The copy is ordered by id (they are ordered by default from the api)
         allDogsFiltered.sort((a, b) => a.id - b.id);
       } else if (payload === "weight") {
+        // It is separated with the split and the first character is taken to order them with the sort
         allDogsFiltered.sort((a, b) => a.weight.split(" - ")[0] - b.weight.split(" - ")[0]);
       }
       return {
         ...state,
         allDogs: allDogsFiltered,
       };
+    // Case to order the dogs
     case ORDER:
+      // A copy of the original array is created
       const allDogsCopy = [...state.allDogs];
       return {
         ...state,
+        // A ternary is used to evaluate one condition or another
         allDogs:
           payload === "A"
             ? allDogsCopy.sort((a, b) => a.id - b.id)
             : allDogsCopy.sort((a, b) => b.id - a.id),
       };
+    // Case to filter by api or db
     case RESPONSE_API_DB:
       const copyAllDogs = [...state.allDogs];
       return {
         ...state,
+        // A ternary is used to evaluate one condition or another
         allDogs:
         payload === "db"
         ? copyAllDogs.filter((dog) => dog.id.length > 3)
         : copyAllDogs.sort((a, b) => a.idApi - b.idApi)
       };
-    // Cuando no se reconoce el tipo de accion, se retorna el estado actual sin realizar cambios
+    // When the action type is not recognized, the current state is returned without making any changes.
     default:
       return {
         ...state,

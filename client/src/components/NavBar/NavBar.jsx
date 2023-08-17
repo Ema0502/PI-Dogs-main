@@ -7,13 +7,13 @@ const NavBar = () => {
   return (
     <div className={style["navBar-container"]}>
       <div className={style["navBar"]}>
-        {/* Boton para enviar al usuario ruta del home */}
+        {/* Button to send the user home route*/}
         {location.pathname !== "/home" && 
         <NavLink to="/home" className={style["button-navBar"]}>Home</NavLink>}
-        {/* Boton para enviar al usuario ruta para crear un perro */}
+        {/* Button to send the user a route to create a dog*/}
         {location.pathname !== "/create" &&
         <NavLink to="/create" className={style["button-navBar"]}>Crear</NavLink>}
-        {/* Boton para enviar al usuario ruta para crear un perro */}
+        {/* Button to send the user a route to create a dog*/}
         {location.pathname !== "/about" &&
         <NavLink to="/about" className={style["button-navBar"]}>About</NavLink>}
         {location.pathname === "/home" && <SearchBar />}
