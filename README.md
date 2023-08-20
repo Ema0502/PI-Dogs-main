@@ -4,9 +4,6 @@
 <!-- Contenedor de las imágenes en fila -->
 <div style="display: flex; flex-wrap: wrap; gap: 20px;">
 
-  <!-- Imagen de HenryLogo con tamaño de icono -->
-  <img src="https://d31uz8lwfmyn8g.cloudfront.net/Assets/logo-henry-white-lg.png" alt="HenryLogo" width="64" height="64">
-
   <!-- Imagen de CSS con tamaño de icono -->
   <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="CSS" width="64" height="64">
 
