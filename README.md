@@ -1,5 +1,45 @@
 ![HenryLogo](https://d31uz8lwfmyn8g.cloudfront.net/Assets/logo-henry-white-lg.png)
 
+## **TECNOLOGIAS UTILIZADAS**
+<!-- Contenedor de las imágenes en fila -->
+<div style="display: flex; flex-wrap: wrap; gap: 20px;">
+
+  <!-- Imagen de HenryLogo con tamaño de icono -->
+  <img src="https://d31uz8lwfmyn8g.cloudfront.net/Assets/logo-henry-white-lg.png" alt="HenryLogo" width="64" height="64">
+
+  <!-- Imagen de CSS con tamaño de icono -->
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="CSS" width="64" height="64">
+
+  <!-- Imagen de Express con tamaño de icono -->
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" alt="Express" width="64" height="64">
+
+  <!-- Imagen de JavaScript con tamaño de icono -->
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" width="64" height="64">
+
+  <!-- Imagen de Node.js con tamaño de icono -->
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" alt="Node.js" width="64" height="64">
+
+  <!-- Imagen de PostgreSQL con tamaño de icono -->
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="PostgreSQL" width="64" height="64">
+
+  <!-- Imagen de React con tamaño de icono -->
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="React" width="64" height="64">
+
+  <!-- Imagen de Redux con tamaño de icono -->
+  <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="Redux" width="64" height="64">
+</div>
+
+El objetivo fue crear una Aplicación web donde se puedan encontrar diferentes tipos de perros, utilizando una API externa. Y a partir de ella:
+
+✅ Buscar perros
+
+✅ Filtrarlos por temperamentos y peso / Ordenarlos por orden alfabetico, de manera ascendente ⏫ y descendente ⏬.
+
+✅ Crear nuevos perros propios / Ademas de poder editarlos o eliminarlos
+
+# Para ejecutarla localmente seguir el siguiente readme:
+-----------------------------------
+
 # **DOGS** | Proyecto Individual
 
 ## **📌 OBJETIVOS**
