@@ -6,13 +6,13 @@ const Card = ({dog}) => {
   return (
     <div className={style["card-container"]}>
       {/* The navLink is in charge of sending the user to the detail of this card*/}
-      <NavLink to={`/home/${id}`}>
+      <NavLink className={style.texto} to={`/home/${id}`}>
         <img src={image} alt="" className={style["image-card"]} />
         <div className={style["box-text"]}>
-          <h3>Nombre: {name}</h3>
-          <h3>Peso: {weight}</h3>
-          <h3>Altura: {height}</h3>
-          <h3>Temperamentos: {temperament}</h3>
+          <h3 className={style.texto}>Nombre: {name}</h3>
+          <h3 className={style.texto}>Peso: {weight}</h3>
+          <h3 className={style.texto}>Altura: {height}</h3>
+          <h3 className={style.texto}>Temperamentos: {temperament}</h3>
         </div>
       </NavLink>
     </div>

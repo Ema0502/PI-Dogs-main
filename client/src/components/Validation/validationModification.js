@@ -29,8 +29,6 @@ const validation = (input) => {
 
   if (/\d/.test(input.temperament) && input.temperament) {
     errors.temperament = "Solo puedes agregar caracteres";
-  } else if (!/^.{1,100}$/.test(input.temperament)) {
-    errors.name = "El nombre debe contener máximo 100 caracteres";
   }
 
   return errors;

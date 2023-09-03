@@ -36,7 +36,7 @@ const Home = () => {
 
   return (
     <div className={style.home}>
-      <NavBar />
+      <NavBar setPage={setPage} />
       <div className={style["container-buttons"]}>
         <select name="order" id="order" onChange={handleOrder} className={style.selectButton}>
           <option value="A">Ascendente</option>

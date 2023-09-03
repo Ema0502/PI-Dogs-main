@@ -33,7 +33,7 @@
 
 .image-dog{
   width: 300px; /* Ajusta el ancho de la imagen al 100% del contenedor */
-  height: auto; /* Ajusta la altura de la imagen automáticamente */
+  height: 280px; /* Ajusta la altura de la imagen automáticamente */
   object-fit: cover; /* Ajusta el tamaño de la imagen sin distorsión */
   border-radius: 1.8em;
   padding: 15px;
@@ -44,6 +44,8 @@
   border: 1px solid black;
   border-radius: .8em;
   padding: 10px;
+  width: 300px;
+  height: 350px;
 }
 
 .buttonPut{

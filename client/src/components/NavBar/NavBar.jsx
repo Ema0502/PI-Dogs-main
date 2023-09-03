@@ -2,7 +2,7 @@ import style from "./NavBar.module.css";
 import SearchBar from "../SearchBar/SearchBar"
 import { NavLink, useLocation } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({setPage}) => {
   const location = useLocation();
   return (
     <div className={style["navBar-container"]}>
@@ -16,7 +16,7 @@ const NavBar = () => {
         {/* Button to send the user a route to create a dog*/}
         {location.pathname !== "/about" &&
         <NavLink to="/about" className={style["button-navBar"]}>About</NavLink>}
-        {location.pathname === "/home" && <SearchBar />}
+        {location.pathname === "/home" && <SearchBar setPage={setPage} />}
       </div>
     </div>
   );

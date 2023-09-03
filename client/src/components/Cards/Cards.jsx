@@ -14,7 +14,7 @@ const Cards = ({page, setPage, pageLength, maximum}) => {
         allDogs
         .slice((page - 1) * pageLength, (page - 1) * pageLength + pageLength)
         .map((dog) => {
-          return <Card dog={dog} />
+          return <Card dog={dog} key={dog.id} />
         })
       }
       </div>

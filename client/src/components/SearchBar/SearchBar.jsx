@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getByName } from "../../redux/actions";
 
-const SearchBar = () => {
+const SearchBar = ({setPage}) => {
   const dispatch = useDispatch();
   // This state is for the input of the searchBar
   const [name, setName] = useState("");
@@ -16,6 +16,7 @@ const SearchBar = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     dispatch(getByName(name));
+    setPage(1);
   }
 
   return (

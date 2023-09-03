@@ -1,17 +1,31 @@
-.body-form{
-  margin-top: 80px; /*Adjust the height of the NavBar*/
-  padding-bottom: 20px; /*adjust space down*/
+.body-form {
+  margin-top: 80px;
+  padding-bottom: 20px;
+}
+
+.form-field {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.label {
+  width: 150px; /* Ancho fijo para todas las etiquetas */
+  text-align: right; /* Alinea el texto de la etiqueta a la derecha */
+  padding-right: 20px; /* Agrega espacio entre la etiqueta y el campo de entrada */
 }
 
 .box-text {
   background-color: rgba(255, 255, 255, 0.7);
   border: 1px solid black;
   padding: 5px 50px 5px 50px;
-  width: 470px;
+  width: 620px;
   height: 60px;
-  border-radius: .8em;
+  border-radius: 1em;
+  padding: 0.3em;
+  font-size: 1em;
+  flex-grow: 1;
   display: flex; /*Set the box container as a flexbox*/
-  justify-content: center; /*Center content horizontally*/
   align-items: center; /*Center content vertically*/
   margin-top: 5px; /*Adjust the height of the NavBar*/
 }
@@ -32,11 +46,4 @@
   overflow: hidden;
   z-index: 1;
   background-image: linear-gradient(to bottom, #ff736d, #ff8763, #ff9b5c, #ffb059, #ffc55b);
-}
-
-input {
-  border-radius: 2em;
-  margin-right: 1em;
-  padding: 0.3em;
-  font-size: 1em;
 }
