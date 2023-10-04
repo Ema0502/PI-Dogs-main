@@ -30,7 +30,7 @@ El objetivo fue crear una Aplicación web donde se puedan encontrar diferentes t
 
 ✅ Buscar perros
 
-✅ Filtrarlos por temperamentos y peso / Ordenarlos por orden alfabetico, de manera ascendente ⏫ y descendente ⏬.
+✅ Filtrar por temperamentos y peso / Ordenarlos por orden alfabetico, de manera ascendente ⏫ y descendente ⏬.
 
 ✅ Crear nuevos perros propios / Ademas de poder editarlos o eliminarlos
 
